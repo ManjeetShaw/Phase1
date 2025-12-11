@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher SignUp - LogIn_PhasE</title>
+    <style>
+        @import "https://fonts.googleapis.com/css?family=Ubuntu:400,700italic";
+        @import "https://fonts.googleapis.com/css?family=Cabin:400";
+        
+        * { box-sizing: border-box; }
+        html {
+            background: #000;
+            background-size: cover;
+            font-size: 10px;
+            height: 100%;
+            overflow: auto;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        /* Logo */
+        #logo {
+            animation: logo-entry 4s ease-in;
+            width: 90vw;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 40;
+        }
+        h1 {
+            animation: text-glow 2s ease-out infinite alternate;
+            font-family: 'Ubuntu', sans-serif;
+            color: #00a4a2;
+            font-size: 4rem;
+            font-weight: bold;
+            position: absolute;
+            text-shadow: 0 0 10px #000, 0 0 20px #000, 0 0 30px #000, 0 0 40px #000, 0 0 50px #000, 0 0 60px #000, 0 0 70px #000;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        h1:before {
+            animation: before-glow 2s ease-out infinite alternate;
+            border-left: 535px solid transparent;
+            border-bottom: 10px solid #00a4a2;
+            content: ' ';
+            height: 0;
+            position: absolute;
+            right: -74px;
+            top: -10px;
+            width: 0;
+        }
+        h1:after {
+            animation: after-glow 2s ease-out infinite alternate;
+            border-left: 100px solid transparent;
+            border-top: 16px solid #00a4a2;
+            content: ' ';
+            height: 0;
+            position: absolute;
+            right: -85px;
+            top: 24px;
+            transform: rotate(-47deg);
+            width: 0;
+        }
+        
+        /* Counsel SignUp Form */
+        #fade-box {
+            animation: input-entry 3s ease-in;
+            z-index: 4;
+        }
+        .tech-signup {
+            position: relative;
+            z-index: 4;
+        }
+        .tech-signup form {
+            animation: form-entry 3s ease-in-out;
+            background: linear-gradient(#004746, #111111);
+            border: 6px solid #00a4a2;
+            box-shadow: 0 0 15px #00fffd;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 220px auto 40px;
+            position: relative;
+            z-index: 4;
+            max-width: 90vw;
+            width: 450px;
+            height: auto;
+            padding: 30px 20px;
+            transition: 1s all;
+        }
+        .tech-signup form:hover {
+            border: 6px solid #00fffd;
+            box-shadow: 0 0 25px #00fffd;
+            transition: 0.5s all;
+        }
+        
+        .tech-signup input {
+            background: linear-gradient(#333333, #222222);
+            border: 1px solid #444;
+            border-radius: 8px;
+            box-shadow: 0 2px 0 #000;
+            color: #888;
+            display: block;
+            font-family: 'Cabin', helvetica, arial, sans-serif;
+            font-size: 1.3rem;
+            height: 45px;
+            margin: 15px auto 10px;
+            padding: 0 15px;
+            text-shadow: 0 -1px 0 #000;
+            width: 90%;
+            max-width: 380px;
+        }
+        .tech-signup input:focus {
+            animation: box-glow 1s ease-out infinite alternate;
+            background: linear-gradient(#333933, #222922);
+            border-color: #00fffc;
+            box-shadow: 0 0 5px rgba(0, 255, 253, 0.2),
+                        inset 0 0 5px rgba(0, 255, 253, 0.1),
+                        0 2px 0 #000;
+            color: #efe;
+            outline: none;
+        }
+        .tech-signup button {
+            animation: input-entry 3s ease-in;
+            background: linear-gradient(#333333, #222222);
+            box-sizing: content-box;
+            border: 1px solid #444;
+            border-left-color: #000;
+            border-radius: 8px;
+            box-shadow: 0 2px 0 #000;
+            color: #fff;
+            display: block;
+            font-family: 'Cabin', helvetica, arial, sans-serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            height: 45px;
+            line-height: 45px;
+            margin: 25px auto 0;
+            padding: 0;
+            position: relative;
+            text-shadow: 0 -1px 0 #000;
+            width: 90%;
+            max-width: 380px;
+            transition: 1s all;
+        }
+        .tech-signup button:hover,
+        .tech-signup button:focus {
+            background: linear-gradient(#393939, #292929);
+            color: #00fffc;
+            outline: none;
+            transition: 1s all;
+        }
+        
+        /* Rotating Circle */
+        #circle1 {
+            animation: circle1 4s linear infinite, circle-entry 6s ease-in-out;
+            background: #000;
+            border-radius: 50%;
+            border: 10px solid #00a4a2;
+            box-shadow: 0 0 0 2px black, 0 0 0 6px #00fffc;
+            height: 500px;
+            width: 500px;
+            position: absolute;
+            top: 130px;
+            left: 50%;
+            margin-left: -250px;
+            overflow: hidden;
+            opacity: 0.4;
+            z-index: -3;
+        }
+        #inner-cirlce1 {
+            background: #000;
+            border-radius: 50%;
+            border: 36px solid #00fffc;
+            height: 460px;
+            width: 460px;
+            margin: 10px;
+            position: relative;
+        }
+        #inner-cirlce1:before {
+            content: ' ';
+            width: 240px;
+            height: 480px;
+            background: #000;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #inner-cirlce1:after {
+            content: ' ';
+            width: 480px;
+            height: 240px;
+            background: #000;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        /* HEXAGONAL + TRIANGULAR MESH */
+        .teacher-hex-tri {
+            animation: logo-entry 4s ease-in;
+            color: #000;
+            font-size: 5.1rem;
+            letter-spacing: -0.2em;
+            line-height: 0.7;
+            position: absolute;
+            text-shadow: 0 0 6px #00fffc;
+            top: 400px;
+            width: 100%;
+            transform: perspective(600px) rotateX(60deg) scale(1.4);
+            z-index: -3;
+        }
+        .teacher-hex-tri span {
+            display: inline-block;
+            animation: hex-float 3s ease-in-out infinite alternate;
+        }
+        .teacher-hex-tri span:nth-child(odd) { animation-delay: 1s; }
+        .teacher-hex-tri span:nth-child(3n) {
+            color: #00a4a2;
+            text-shadow: 0 0 10px #00fffc;
+        }
+        
+        .tri-hex-mesh {
+            position: absolute;
+            top: 450px;
+            left: 10%;
+            width: 80%;
+            height: 300px;
+            z-index: -2;
+        }
+        .triangle-up,
+        .triangle-down {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            animation: tri-rotate 8s linear infinite;
+            opacity: 0.3;
+        }
+        .triangle-up { border-bottom: 50px solid #00a4a2; }
+        .triangle-down {
+            border-top: 50px solid #00fffc;
+            transform: rotate(180deg);
+        }
+        .triangle-up:nth-child(1) { top: 20px; left: 10%; animation-delay: 0s; }
+        .triangle-up:nth-child(2) { top: 80px; left: 25%; animation-delay: 1s; }
+        .triangle-down:nth-child(3) { top: 40px; left: 40%; animation-delay: 2s; }
+        .triangle-up:nth-child(4) { top: 120px; left: 55%; animation-delay: 3s; }
+        .triangle-down:nth-child(5) { top: 160px; left: 70%; animation-delay: 4s; }
+        
+        /* Keyframes */
+        @keyframes logo-entry {
+            0% { opacity: 0; }
+            80% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes circle-entry {
+            0% { opacity: 0; }
+            20% { opacity: 0; }
+            100% { opacity: 0.4; }
+        }
+        @keyframes input-entry {
+            0% { opacity: 0; }
+            90% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes form-entry {
+            0% { height: 0; width: 0; opacity: 0; padding: 0; }
+            20% { height: 0; border: 1px solid #00a4a2; width: 0; opacity: 0; padding: 0; }
+            40% { width: 0; height: 520px; border: 6px solid #00a4a2; opacity: 1; padding: 0; }
+            100% { height: auto; width: 450px; }
+        }
+        @keyframes box-glow {
+            0% {
+                border-color: #00b8b6;
+                box-shadow: 0 0 5px rgba(0, 255, 253, 0.2),
+                            inset 0 0 5px rgba(0, 255, 253, 0.1),
+                            0 2px 0 #000;
+            }
+            100% {
+                border-color: #00fffc;
+                box-shadow: 0 0 20px rgba(0, 255, 253, 0.6),
+                            inset 0 0 10px rgba(0, 255, 253, 0.4),
+                            0 2px 0 #000;
+            }
+        }
+        @keyframes text-glow {
+            0% {
+                color: #00a4a2;
+                text-shadow: 0 0 10px #000, 0 0 20px #000, 0 0 30px #000,
+                             0 0 40px #000, 0 0 50px #000, 0 0 60px #000,
+                             0 0 70px #000;
+            }
+            100% {
+                color: #00fffc;
+                text-shadow: 0 0 20px rgba(0, 255, 253, 0.6),
+                             0 0 10px rgba(0, 255, 253, 0.4),
+                             0 2px 0 #000;
+            }
+        }
+        @keyframes before-glow {
+            0% { border-bottom: 10px solid #00a4a2; }
+            100% { border-bottom: 10px solid #00fffc; }
+        }
+        @keyframes after-glow {
+            0% { border-top: 16px solid #00a4a2; }
+            100% { border-top: 16px solid #00fffc; }
+        }
+        @keyframes circle1 {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes hex-float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+        @keyframes tri-rotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div id="logo">
+        <h1><i>Counsel_SignUp</i></h1>
+    </div>
+
+    <section class="tech-signup">
+        <form action="/teacher-signup" method="POST">
+            <div id="fade-box">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="password" name="password" placeholder="Password" required minlength="6">
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required minlength="6">
+                <input type="number" name="experience" placeholder="Years of Experience" min="0" required>
+                <input type="text" name="qualification" placeholder="Qualifications (M.Sc, PhD, etc.)" required>
+                <button type="submit">Sign Up as Counsel</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Rotating Circle -->
+    <div id="circle1">
+        <div id="inner-cirlce1"></div>
+    </div>
+
+    <!-- Hexagonal + Triangular Mesh -->
+    <div class="teacher-hex-tri">
+        &#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;<br>
+        &#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;<br>
+        &#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;&#x2B22;
+    </div>
+
+    <!-- Floating Triangles -->
+    <div class="tri-hex-mesh">
+        <div class="triangle-up"></div>
+        <div class="triangle-up"></div>
+        <div class="triangle-down"></div>
+        <div class="triangle-up"></div>
+        <div class="triangle-down"></div>
+    </div>
+</body>
+</html>
