@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Neon Black</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Contact.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="neon-title">NEON CONTACT</h1>
+            <p class="glitch-text">Connect through the matrix. Response in 24h.</p>
+        </header>
+        
+        <div class="content">
+            <div class="contact-info">
+                <div class="info-item">
+                    <div class="icon">📧</div>
+                    <h3>EMAIL PORTAL</h3>
+                    <p>manjeetshaw07@gmail.com"</p>
+                    <p>"dasdivya587@gmail.com</p>
+                    <a href="manjeetshaw07@gmail.com" class="btn email-btn">SEND SIGNAL</a>
+                    <a href="dasdivya587@gmail.com" class="btn email-btn">SEND SIGNAL</a>
+                </div>
+                <div class="info-item">
+                    <div class="icon">📞</div>
+                    <h3>VOICE LINK</h3>
+                    <p>+91 6289041202</p>
+                    <p>+91 7439269717</p>
+                    <a href="tel:+7439269717" class="btn phone-btn">DIAL NOW</a>
+                </div>
+                <div class="info-item">
+                    <div class="icon">💬</div>
+                    <h3>LIVE CHAT</h3>
+                    <p>Instant connection</p>
+                    <button class="btn chat-btn" onclick="openChat()">ENTER CHAT</button>
+                </div>
+            </div>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder=" " required>
+                    <label for="name">CALLSIGN</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">NETWORK ID</label>
+                </div>
+                <div class="form-group">
+                    <select id="method">
+                        <option value="email">📧 Email Portal</option>
+                        <option value="phone">📞 Voice Link</option>
+                        <option value="chat">💬 Live Chat</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" placeholder=" " required></textarea>
+                    <label for="message">MESSAGE</label>
+                </div>
+                <button type="submit" class="send-btn">ENTER YOUR QUIERY</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="Contact.js"></script>
+</body>
+</html>
